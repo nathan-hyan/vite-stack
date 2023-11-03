@@ -14,8 +14,9 @@ describe("<App />", () => {
     it("increases count when clicked on button", async () => {
         render(<App />);
 
-        const button = screen.getByRole('button', { name: 'count is 0' });
-
+      const button = screen.getByRole('button', { name: 'count is 0' });
+    
+      expect(button).toBeVisible();
         await userEvent.click(button);
 
         waitFor(() => expect(button).toHaveTextContent('count is 1'));
