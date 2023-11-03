@@ -21,6 +21,13 @@ export default ({ mode }: Props) => {
       environment: 'happy-dom',
       setupFiles: ['./src/setupTest.ts'],
       css: true,
+      coverage: {
+        provider: 'v8',
+        functions: 80,
+        lines: 80,
+        branches: 80,
+        statements: 80,
+      },
     },
     css: {
       modules: {
