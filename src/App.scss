@@ -43,32 +43,3 @@
 .read-the-docs {
   color: #888;
 }
-
-.element {
-  pointer-events: none;
-  user-select: none;
-
-  isolation: isolate;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-
-  width: 5rem;
-  height: 5rem;
-
-  font-size: 2rem;
-  line-height: 1.5;
-  color: #f00;
-  text-align: center;
-
-  .nested {
-    width: 0.2rem;
-    height: 3rem;
-  }
-}
