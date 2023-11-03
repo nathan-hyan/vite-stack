@@ -11,15 +11,14 @@ module.exports = {
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:jest-dom/recommended',
+    'plugin:prettier/recommended',
   ],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}',
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },
@@ -42,7 +41,12 @@ module.exports = {
               // Absolute imports, starting with ~
               ['^~.*(?:/|$)'],
               // Parent imports. Put `..` last.
-              ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$', '^\\.\\.(?!/?$)'],
+              [
+                '^\\./(?=.*/)(?!/?$)',
+                '^\\.(?!/?$)',
+                '^\\./?$',
+                '^\\.\\.(?!/?$)',
+              ],
               // Style imports.
               ['^.+\\.?(scss|css)$'],
             ],
@@ -63,9 +67,9 @@ module.exports = {
     'jest-dom',
     'testing-library',
     'simple-import-sort',
+    'prettier',
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
   },
-
 };
