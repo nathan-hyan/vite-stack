@@ -16,8 +16,7 @@ describe('<App />', () => {
 
     const button = screen.getByRole('button', { name: 'count is 0' });
 
-    expect(button).not.toBeVisible();
-
+    expect(button).toBeVisible();
     await userEvent.click(button);
 
     await waitFor(() => expect(button).toHaveTextContent('count is 1'));
