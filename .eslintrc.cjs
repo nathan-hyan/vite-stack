@@ -48,7 +48,7 @@ module.exports = {
                 '^\\.\\.(?!/?$)',
               ],
               // Style imports.
-              ['^.+\\.?(scss|css)$'],
+              ['^.+\\.?(scss|css)?inline$', '^.+\\.?(scss|css)$'],
             ],
           },
         ],
