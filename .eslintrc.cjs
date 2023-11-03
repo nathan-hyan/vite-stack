@@ -32,7 +32,7 @@ module.exports = {
       files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
       rules: {
         'simple-import-sort/imports': [
-          'warn',
+          'error',
           {
             groups: [
               // Packages `react` related packages come first.
