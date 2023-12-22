@@ -1,0 +1,27 @@
+.tracks-section {
+  scroll-snap-align: start;
+
+  display: grid;
+
+  height: 100%;
+
+  background: url('~assets/bghero3.png');
+  background-attachment: fixed;
+  background-size: cover;
+
+  .mobile {
+    display: none;
+  }
+
+  .center-grid {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    place-self: center center;
+
+    width: 85vw;
+    height: 68vh;
+    min-height: 25.625rem;
+    max-height: 31.875rem;
+  }
+}

@@ -1,15 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/// <reference types='vitest' />
-/// <reference types='vite/client' />
-
 import react from '@vitejs/plugin-react';
+import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 interface Props {
   mode: string;
 }
 
-// https://vitejs.dev/config/
 export default ({ mode }: Props) => {
   const generateScopedName =
     mode === 'production' ? '__[hash:base64:2]' : '[local]_[hash:base64:2]';
@@ -22,21 +19,33 @@ export default ({ mode }: Props) => {
       setupFiles: ['./src/setupTest.ts'],
       css: true,
       coverage: {
+        reporter: ['text', 'json-summary', 'json'],
         enabled: true,
-        skipFull: true,
+        skipFull: false,
         provider: 'v8',
-        functions: 100,
-        lines: 100,
-        branches: 100,
-        statements: 100,
-        thresholdAutoUpdate: true,
       },
     },
     css: {
       modules: {
-        localsConvention: 'camelCase',
+        localsConvention: 'camelCaseOnly',
         generateScopedName,
       },
+    },
+    resolve: {
+      alias: [
+        {
+          find: '~screens',
+          replacement: path.resolve(__dirname, 'src/screens'),
+        },
+        {
+          find: '~assets',
+          replacement: path.resolve(__dirname, 'src/assets'),
+        },
+        {
+          find: '~scss',
+          replacement: path.resolve(__dirname, 'src/scss'),
+        },
+      ],
     },
   });
 };

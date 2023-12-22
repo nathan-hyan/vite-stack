@@ -1,0 +1,34 @@
+@import '~scss/variables';
+
+.card {
+  overflow: auto;
+
+  width: 100%;
+  min-width: 18.75rem;
+  max-width: 25rem;
+  height: 100%;
+  padding-top: 2rem;
+
+  color: #141414;
+  text-align: center;
+
+  background: $foreground;
+
+  img {
+    height: 10rem;
+  }
+
+  img,
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  button {
+    color: #fff;
+    background: $background;
+  }
+}

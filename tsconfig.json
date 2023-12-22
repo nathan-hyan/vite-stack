@@ -25,7 +25,13 @@
         "name": "typescript-plugin-css-modules",
         "options": { "classnameTransform": "camelCaseOnly" }
       }
-    ]
+    ],
+    "paths": {
+      "~/*": ["./"],
+      "~screens/*": ["./screens/*"],
+      "~assets/*": ["./assets/*"],
+      "~scss/*": ["./scss/*"]
+    }
   },
   "include": ["src", "./.eslintrc.cjs", "./vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
