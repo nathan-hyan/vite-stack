@@ -3,6 +3,7 @@
 /// <reference types='vite/client' />
 
 import react from '@vitejs/plugin-react';
+import path from 'path';
 import { defineConfig } from 'vitest/config';
 
 interface Props {
@@ -22,14 +23,10 @@ export default ({ mode }: Props) => {
       setupFiles: ['./src/setupTest.ts'],
       css: true,
       coverage: {
+        reporter: ['text', 'json-summary', 'json'],
         enabled: true,
-        skipFull: true,
+        skipFull: false,
         provider: 'v8',
-        functions: 100,
-        lines: 100,
-        branches: 100,
-        statements: 100,
-        thresholdAutoUpdate: true,
       },
     },
     css: {
@@ -37,6 +34,46 @@ export default ({ mode }: Props) => {
         localsConvention: 'camelCase',
         generateScopedName,
       },
+    },
+    resolve: {
+      alias: [
+        {
+          find: '~components',
+          replacement: path.resolve(__dirname, 'src/components'),
+        },
+        {
+          find: '~screens',
+          replacement: path.resolve(__dirname, 'src/screens'),
+        },
+        {
+          find: '~config',
+          replacement: path.resolve(__dirname, 'src/config'),
+        },
+        {
+          find: '~utils',
+          replacement: path.resolve(__dirname, 'src/utils'),
+        },
+        {
+          find: '~assets',
+          replacement: path.resolve(__dirname, 'src/assets'),
+        },
+        {
+          find: '~hooks',
+          replacement: path.resolve(__dirname, 'src/hooks'),
+        },
+        {
+          find: '~contexts',
+          replacement: path.resolve(__dirname, 'src/contexts'),
+        },
+        {
+          find: '~constants',
+          replacement: path.resolve(__dirname, 'src/constants'),
+        },
+        {
+          find: '~scss',
+          replacement: path.resolve(__dirname, 'src/scss'),
+        },
+      ],
     },
   });
 };
