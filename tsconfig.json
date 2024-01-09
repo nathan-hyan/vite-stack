@@ -9,6 +9,7 @@
     "baseUrl": "./src",
     "paths": {
       "~/*": ["./"],
+      "~lang/*": ["./lang/*"],
       "~components/*": ["./components/*"],
       "~screens/*": ["./screens/*"],
       "~config/*": ["./config/*"],

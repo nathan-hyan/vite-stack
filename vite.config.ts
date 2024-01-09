@@ -1,17 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/// <reference types='vitest' />
-/// <reference types='vite/client' />
-
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vitest/config';
 
-interface Props {
-  mode: string;
-}
-
-// https://vitejs.dev/config/
-export default ({ mode }: Props) => {
+export default ({ mode }: { mode: string }) => {
   const generateScopedName =
     mode === 'production' ? '__[hash:base64:2]' : '[local]_[hash:base64:2]';
 
@@ -31,12 +23,16 @@ export default ({ mode }: Props) => {
     },
     css: {
       modules: {
-        localsConvention: 'camelCase',
+        localsConvention: 'camelCaseOnly',
         generateScopedName,
       },
     },
     resolve: {
       alias: [
+        {
+          find: '~lang',
+          replacement: path.resolve(__dirname, 'src/lang'),
+        },
         {
           find: '~components',
           replacement: path.resolve(__dirname, 'src/components'),
@@ -70,8 +66,8 @@ export default ({ mode }: Props) => {
           replacement: path.resolve(__dirname, 'src/constants'),
         },
         {
-          find: '~scss',
-          replacement: path.resolve(__dirname, 'src/scss'),
+          find: '~styles',
+          replacement: path.resolve(__dirname, 'src/styles'),
         },
       ],
     },
